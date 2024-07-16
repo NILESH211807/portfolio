@@ -10,30 +10,13 @@ const authRouter = require('./router/auth-router');
 const error_middlerware = require('./middleware/error');
 
 
-// const corsOptions = {
-//     origin: 'https://elegant-croquembouche-6ebe1e.netlify.app',
-//     methods: 'GET, POST, PUT, DELETE, PATCH, HEAD',
-//     credentials: true,
-// }
+const corsOptions = {
+    origin: 'https://elegant-croquembouche-6ebe1e.netlify.app',
+    methods: 'GET, POST, PUT, DELETE, PATCH, HEAD',
+    credentials: true,
+}
 
-const allowedOrigins = [
-    'http://localhost:5173',
-    'https://elegant-croquembouche-6ebe1e.netlify.app'
-];
-
-app.use(cors({
-    origin: function (origin, callback) {
-        // Allow requests with no origin like mobile apps or curl requests
-        if (!origin) return callback(null, true);
-        if (allowedOrigins.indexOf(origin) === -1) {
-            const msg = 'The CORS policy for this site does not allow access from the specified origin.';
-            return callback(new Error(msg), false);
-        }
-        return callback(null, true);
-    }
-}));
-
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
