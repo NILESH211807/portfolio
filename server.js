@@ -11,7 +11,7 @@ const error_middlerware = require('./middleware/error');
 
 
 const corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: 'https://elegant-croquembouche-6ebe1e.netlify.app',
     methods: 'GET, POST, PUT, DELETE, PATCH, HEAD',
     credentials: true,
 }
